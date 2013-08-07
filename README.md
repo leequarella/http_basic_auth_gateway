@@ -13,12 +13,12 @@ gem "http_basic_auth_gateway"
 ###Create the gateway
 ```ruby
 gateway = Net::HTTP::BasicAuthGateway.new({
-  verb:      :put,
-  skip_ssl:  true,
-  form_data: form_data,
-  url:       url,
-  user_name: user_name,
-  password:  password})
+  verb:      <symbol for http verb, example: :put>,
+  skip_ssl:  <boolean>,
+  form_data: <form_data>,
+  url:       <sting url, example: "http://www.myapi.com/request">,
+  user_name: <user name>,
+  password:  <password>})
 ```
 
 ###Send it off on it's merry way

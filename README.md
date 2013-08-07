@@ -21,7 +21,7 @@ gateway = Net::HTTP::BasicAuthGateway.new({
   password:  <password>})
 ```
 
-###Send it off on it's merry way
+###Send it on it's merry way
 ```ruby
 result_message = gateway.send
 ```

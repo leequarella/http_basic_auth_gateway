@@ -14,9 +14,9 @@ class Net::HTTP::BasicAuthGateway
   def send
     begin
       response = get_response
-      return {result: "success", response_code: response.code, message: response.body}
+      return {result: "success", response: response, message: response.body}
     rescue Exception => error
-      return {result: "failure", message: error}
+      return {result: "failure", error: error}
     end
   end
 

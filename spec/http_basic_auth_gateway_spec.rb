@@ -34,7 +34,7 @@ describe Net::HTTP::BasicAuthGateway do
        .to_raise(StandardError)
       result_message = gateway.send
       expect(result_message[:result]).to eq "failure"
-      expect(result_message[:message]).to be_an_instance_of StandardError
+      expect(result_message[:error]).to be_an_instance_of StandardError
     end
   end
 
@@ -45,7 +45,7 @@ describe Net::HTTP::BasicAuthGateway do
       gateway.set_verb(:post)
       result_message = gateway.send
       expect(result_message[:result]).to eq "success"
-      expect(result_message[:response_code]).to eq "200"
+      expect(result_message[:response].code).to eq "200"
       expect(result_message[:message]).to eq "some_message"
     end
     it "handles GET requests" do
@@ -54,7 +54,7 @@ describe Net::HTTP::BasicAuthGateway do
       gateway.set_verb(:get)
       result_message = gateway.send
       expect(result_message[:result]).to eq "success"
-      expect(result_message[:response_code]).to eq "200"
+      expect(result_message[:response].code).to eq "200"
       expect(result_message[:message]).to eq "some_message"
     end
     it "handles PUT requests" do
@@ -62,7 +62,7 @@ describe Net::HTTP::BasicAuthGateway do
         .to_return(:status => 200, :body => "some_message", :headers => {})
       result_message = gateway.send
       expect(result_message[:result]).to eq "success"
-      expect(result_message[:response_code]).to eq "200"
+      expect(result_message[:response].code).to eq "200"
       expect(result_message[:message]).to eq "some_message"
     end
     it "handles DELETE requests" do
@@ -71,7 +71,7 @@ describe Net::HTTP::BasicAuthGateway do
       gateway.set_verb(:delete)
       result_message = gateway.send
       expect(result_message[:result]).to eq "success"
-      expect(result_message[:response_code]).to eq "200"
+      expect(result_message[:response].code).to eq "200"
       expect(result_message[:message]).to eq "some_message"
     end
   end
@@ -87,7 +87,7 @@ describe Net::HTTP::BasicAuthGateway do
       gateway.set_verb(:post)
       result_message = gateway.send
       expect(result_message[:result]).to eq "success"
-      expect(result_message[:response_code]).to eq "200"
+      expect(result_message[:response].code).to eq "200"
       expect(result_message[:message]).to eq "some_message"
     end
     it "handles GET requests" do
@@ -96,7 +96,7 @@ describe Net::HTTP::BasicAuthGateway do
       gateway.set_verb(:get)
       result_message = gateway.send
       expect(result_message[:result]).to eq "success"
-      expect(result_message[:response_code]).to eq "200"
+      expect(result_message[:response].code).to eq "200"
       expect(result_message[:message]).to eq "some_message"
     end
     it "handles PUT requests" do
@@ -104,7 +104,7 @@ describe Net::HTTP::BasicAuthGateway do
         .to_return(:status => 200, :body => "some_message", :headers => {})
       result_message = gateway.send
       expect(result_message[:result]).to eq "success"
-      expect(result_message[:response_code]).to eq "200"
+      expect(result_message[:response].code).to eq "200"
       expect(result_message[:message]).to eq "some_message"
     end
     it "handles DELETE requests" do
@@ -113,7 +113,7 @@ describe Net::HTTP::BasicAuthGateway do
       gateway.set_verb(:delete)
       result_message = gateway.send
       expect(result_message[:result]).to eq "success"
-      expect(result_message[:response_code]).to eq "200"
+      expect(result_message[:response].code).to eq "200"
       expect(result_message[:message]).to eq "some_message"
     end
   end

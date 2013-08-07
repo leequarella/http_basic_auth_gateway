@@ -31,13 +31,13 @@ result_message = gateway.send
 If the transaction was sucessful and the card was approved, the response will have the following attrs:
 ```ruby
  result_message #=> {result: "success",
-                     response: <full response object>,
-                     message: <response body of the transaction>}
+                #=>   response: <full response object>,
+                #=>   message: <response body of the transaction>}
 ```
 
 
 Otherwise there was some problem with the transaction, so the response will have these attrs:
 ```ruby
  result_message #=> {result: "failure",
-                     error: <exception object>}
+                #=>   error: <exception object>}
 ```
